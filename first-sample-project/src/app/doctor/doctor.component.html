@@ -1,0 +1,321 @@
+<!-- <div class="header">
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Doctor ID</th>
+          <th>Doctor Name</th>
+          <th>Mobile</th>
+          <th>Speciality</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors" (click)="onSelect(doctor)">
+          <td>{{ doctor.did }}</td>
+          <td>{{ doctor.doctorName }}</td>
+          <td>{{ doctor.mobile }}</td>
+          <td>{{ doctor.speciality }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="save()">Edit</button>
+            <button class="btn btn-danger" (click)="delete()">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="selectedDoctor" class="main">
+    <h1>{{ isNewDoctor ? "Add New Doctor" : "Edit Doctor" }}</h1>
+    <div class="register">
+      <div id="register">
+        
+
+        <label for="doctorName"> Doctor Name: </label>
+        <br />
+        <input
+          type="text"
+          name="fname"
+          id="doctorName"
+          [(ngModel)]="selectedDoctor.doctorName"
+        />
+        <br /><br />
+
+        <label for="mobile">Mobile Number : </label>
+        <br />
+        <input
+          type="text"
+          name="fname"
+          id="mobile"
+          [(ngModel)]="selectedDoctor.mobile"
+        />
+        <br /><br />
+        <label for="speciality">Speciality: </label>
+        <br />
+        <select class="custom-select" [(ngModel)]="selectedDoctor.speciality">
+          <option value="Bronze">General Practioner</option>
+
+          <option value="Cardiologist">Cardiologist</option>
+
+          <option value="Pediatrician">Pediatrician</option>
+
+          <option value="Neurologist">Neurologist</option>
+
+          <option value="Urologist">Urologist</option>
+
+          <option value="Dermatologist">Dermatologist</option>
+        </select>
+        <br /><br />
+      </div>
+
+      <div>
+        <button (click)="save()" class="btn">Save</button>
+
+        <br /><br />
+
+        <button (click)="delete()" class="btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="addNewDoctor()" class="btn1">Add New Doctor</button>
+  </div>
+</div>
+
+<a href="#" routerLink="/dashboard" class="btn1">Back</a> -->
+
+<!--vik-->
+
+<br />
+<div class="body">
+  <div>
+    <a routerLink="/dashboard" class="previous">&laquo; back</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-dark" (click)="addNewDoctor()">
+      Add New Doctor
+    </button>
+
+    <!-- <a href="#" class="next">Next &raquo;</a> -->
+  </div>
+
+  <div *ngIf="selectedDoctor">
+    <div
+      class="container mt-5 mb-5 d-flex justify-content-center"
+      style="background-color: whitesmoke; width: 1300px; height: 700px"
+    >
+      <img
+        src="../../assets/room"
+        style="
+          width: 900px;
+          height: 620px;
+          border-radius: 20px;
+          margin-left: 5px;
+          margin-top: 20px;
+        "
+        alt="logo"
+      />
+      <div class="card px-1 py-4" style="margin: 20px 20px">
+        <div class="card-body">
+          <h5>{{ isNewDoctor ? "Add New Doctor" : "Edit Doctor" }}</h5>
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- <div class="form-group">
+                Bill Id :
+                <input
+                  class="form-control"
+                  type="text"
+                  name="PatientId"
+                  id="bid"
+                  placeholder="bill id"
+                  [(ngModel)]="selectedbill.bid"
+                />
+              </div> -->
+
+              <div class="form-group">
+                Doctor Name:
+                <!-- <input
+                  class="form-control"
+                  type="text"
+                  name="pid"
+                  id="pid"
+                  placeholder="Patient ID"
+                  [(ngModel)]="selectedbill.pid"
+                /> 
+              <div class="form-group">
+                did :
+
+                <select [(ngModel)]="selectedpatient.did">
+                  <option *ngFor="let doctor of doctors" [value]="doctor.did">
+                    {{ doctor.did }}
+                  </option>
+                </select>
+              </div>
+              <br />-->
+                <input
+                  class="form-control"
+                  type="text"
+                  name="doctorName"
+                  id="doctorName"
+                  placeholder=""
+                  [(ngModel)]="selectedDoctor.doctorName"
+                />
+              </div>
+              <br />
+              <!-- <div class="form-group">
+                Room Bill :
+                <input
+                  class="form-control"
+                  type="text"
+                  name="roomBill"
+                  id="roomBill"
+                  placeholder=" room Bill"
+                  [(ngModel)]="selectedbill.roomBill"
+                />
+              </div> -->
+
+              <!-- <div class="form-group">
+                Doctor Bill :
+                <input
+                  class="form-control"
+                  type="text"
+                  name="doctorBill"
+                  id="doctorBill"
+                  placeholder="doctor Bill"
+                  [(ngModel)]="selectedbill.doctorBill"
+                />
+              </div> -->
+
+              <!-- <div class="form-group">
+                Doctor ID :
+                <input
+                  class="form-control"
+                  type="text"
+                  name="did"
+                  id="did"
+                  placeholder=""
+                  [(ngModel)]="selectedDoctor.did"
+                />
+              </div> -->
+              <br />
+              <!-- <div class="form-group">
+                Paid Bill :
+                <input
+                  class="form-control"
+                  type="text"
+                  name="paidBill"
+                  id="paidBill"
+                  placeholder="paid Bill"
+                  [(ngModel)]="selectedbill.paidBill"
+                />
+              </div> -->
+
+              <!-- <div class="form-group">
+                remaining Bill :
+                <input
+                  class="form-control"
+                  type="text"
+                  name="remainingBill"
+                  id="remainingBill"
+                  placeholder="remaining Bill"
+                  [(ngModel)]="selectedbill.remainingBill"
+                />
+              </div> -->
+
+              <div class="form-group">
+                Speciality:
+                <select
+                  class="custom-select"
+                  [(ngModel)]="selectedDoctor.speciality"
+                >
+                  <option value="Bronze">General Practioner</option>
+
+                  <option value="Cardiologist">Cardiologist</option>
+
+                  <option value="Pediatrician">Pediatrician</option>
+
+                  <option value="Neurologist">Neurologist</option>
+
+                  <option value="Urologist">Urologist</option>
+
+                  <option value="Dermatologist">Dermatologist</option>
+                </select>
+              </div>
+              <br />
+
+              <div class="form-group">
+                Mobile Number:
+                <input
+                  class="form-control"
+                  type="text"
+                  name="mobile"
+                  id="mobile"
+                  placeholder=" "
+                  [(ngModel)]="selectedDoctor.mobile"
+                />
+              </div>
+              <br />
+
+              <button (click)="save()" class="btn">Save</button>
+
+              <button (click)="delete()" class="btn">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <body class="hm-gradient">
+    <main>
+      <!--MDB Tables-->
+      <div class="container mt-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <!-- Grid row -->
+            <div class="row"></div>
+            <!-- Grid row -->
+            <!--Table-->
+            <table class="table table-striped">
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th>Doctor Name</th>
+                  <th>Doctor ID</th>
+                  <th>Speciality</th>
+
+                  <th>Mobile Number</th>
+
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <!--Table head-->
+              <!--Table body-->
+              <tbody>
+                <tr *ngFor="let doctor of doctors" (click)="onSelect(doctor)">
+                  <td>{{ doctor.doctorName }}</td>
+                  <td>{{ doctor.did }}</td>
+
+                  <td>{{ doctor.speciality }}</td>
+
+                  <td>{{ doctor.mobile }}</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="save()">
+                      Edit
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="delete()">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+
+              <!--Table body-->
+            </table>
+            <!--Table-->
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</div>

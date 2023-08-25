@@ -1,0 +1,227 @@
+<!--TeJ-->
+<!-- <div class="main">
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Room ID</th>
+
+          <th>Room Type</th>
+
+          <th>Number of Rooms</th>
+
+          <th>Price</th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let room of rooms" (click)="onSelect(room)">
+          <td>{{ room.rid }}</td>
+
+          <td>{{ room.roomType }}</td>
+
+          <td>{{ room.totalRoom }}</td>
+
+          <td>{{ room.price }}</td>
+
+          <td>
+            <button class="btn btn-primary" (click)="save()">Edit</button>
+
+            <button class="btn btn-danger" (click)="delete()">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="selectedRoom" class="main1">
+  <h1>{{ isNewroom ? "Add New Room" : "Edit Room" }}</h1>
+
+  <div class="register">
+    <div id="register">
+      <label for="roomType">Room Type : </label>
+
+      <br />
+
+      <input
+        type="text"
+        name="fname"
+        id="roomType"
+        [(ngModel)]="selectedRoom.roomType"
+      />
+
+      <br /><br />
+
+      <label for="totalRoom">Total Room : </label>
+
+      <br />
+
+      <input
+        type="text"
+        name="fname"
+        id="totalRoom"
+        [(ngModel)]="selectedRoom.totalRoom"
+      />
+
+      <br /><br />
+
+      <label for="price">Price: </label>
+
+      <br />
+
+      <input
+        type="text"
+        name="fname"
+        id="price"
+        [(ngModel)]="selectedRoom.price"
+      />
+
+      <br /><br />
+
+      <button class="btn btn-success" (click)="save()">Save</button><br />
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div>
+  <button class="btn btn-primary" (click)="addNewRoom()">Add New Room</button>
+</div>
+
+<a href="#" routerLink="/dashboard" class="btn btn-primary">Back</a> -->
+
+<!--ViK-->
+
+<div class="back">
+  <br />
+  <div *ngIf="selectedRoom">
+    <div
+      class="container mt-5 mb-5 d-flex justify-content-center"
+      style="
+        background-color: whitesmoke;
+        width: 300px;
+        height: 300px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+        position: absolute;
+        margin-left: 1050px;
+      "
+    >
+      <div class="card-body">
+        <h5>&nbsp; {{ isNewroom ? "Add New room" : "Edit room" }}</h5>
+        <br />
+        <div class="row">
+          <div class="col-sm-12" style="margin-left: 10px">
+            <!-- <div class="form-group">
+              Room Id :
+              <input
+                class="form-control"
+                type="text"
+                name="rid"
+                id="rid"
+                placeholder="rid"
+                [(ngModel)]="selectedRoom.rid"
+              />
+            </div> -->
+
+            <div class="form-group">
+              Room type:
+              <input
+                class="form-control"
+                type="text"
+                name="room type"
+                id="room type"
+                placeholder="room type"
+                [(ngModel)]="selectedRoom.roomType"
+              />
+            </div>
+
+            <div class="form-group">
+              Room numbers :
+              <input
+                class="form-control"
+                type="text"
+                name="totalRoom"
+                id="totalRoom"
+                placeholder=" totalRoom"
+                [(ngModel)]="selectedRoom.totalRoom"
+              />
+            </div>
+
+            <div class="form-group">
+              Price :
+              <input
+                class="form-control"
+                type="text"
+                name="price"
+                id="price"
+                placeholder="price"
+                [(ngModel)]="selectedRoom.price"
+              />
+            </div>
+
+            <br />
+
+            &nbsp; &nbsp;
+            <button (click)="save()" class="btn">Save</button> &nbsp; &nbsp;
+            &nbsp;
+
+            <button (click)="delete()" class="btn">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="width: 1200px; margin-left: 10px">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-sm-12 col-xs-12">
+              <a routerLink="/dashboard" class="previous">&laquo; back</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="btn btn-sm btn-primary pull-left" (click)="addNewRoom()"
+                ><i class="fa fa-plus-circle"></i> Add New room</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="panel-body table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Action</th>
+
+                <th>ID</th>
+                <th>Room Type</th>
+
+                <th>Number</th>
+                <th>price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let room of rooms" (click)="onSelect(room)">
+                <td>
+                  <button class="btn btn-primary" (click)="save()">Edit</button>
+                  &nbsp;
+                  <button class="btn btn-danger" (click)="delete()">
+                    Delete
+                  </button>
+                </td>
+
+                <td>{{ room.rid }}</td>
+                <td>{{ room.roomType }}</td>
+
+                <td>{{ room.totalRoom }}</td>
+                <td>{{ room.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

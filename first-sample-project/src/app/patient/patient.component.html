@@ -1,0 +1,255 @@
+<br />
+
+<div class="body">
+  <div>
+    <a routerLink="/dashboard" class="previous">&laquo; back</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <button type="button" class="btn btn-dark" (click)="addNewPatient()">
+      Add New patient
+    </button>
+  </div>
+
+  <div *ngIf="selectedpatient">
+    <div
+      class="container mt-5 mb-5 d-flex justify-content-center"
+      style="background-color: whitesmoke; width: 1300px; height: 700px"
+    >
+      <img
+        src="../../assets/room"
+        style="
+          width: 900px;
+          height: 620px;
+          border-radius: 20px;
+          margin-left: 5px;
+          margin-top: 20px;
+        "
+        alt="logo"
+      />
+
+      <div class="card px-1 py-4" style="margin: 20px 20px">
+        <div class="card-body">
+          <h5>{{ isNewPatient ? "Add New patient" : "Edit Patient" }}</h5>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- <div class="form-group">
+                pid:
+
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="selectedpatient.pid"
+                  name="pid"
+                  id="pid"
+                />
+              </div> -->
+
+              <div class="form-group">
+                Name :
+
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="selectedpatient.name"
+                  name="name"
+                  id="name"
+                />
+              </div>
+
+              <div class="form-group">
+                Mobile :
+
+                <input
+                  class="form-control"
+                  type="text"
+                  name="mobile"
+                  id="monile"
+                  placeholder=""
+                  [(ngModel)]="selectedpatient.mobile"
+                />
+              </div>
+
+              <div class="form-group">
+                gender :
+
+                <!-- <input
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  [(ngModel)]="selectedpatient.gender"
+                  name="gender"
+                  id="gender"
+                /> -->
+                <select
+                  id="gender"
+                  name="gender"
+                  [(ngModel)]="selectedpatient.gender"
+                >
+                  <option value="Male">Male</option>
+
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                Address :
+
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  [(ngModel)]="selectedpatient.address"
+                  name="address"
+                  id="address"
+                />
+              </div>
+
+              <div class="form-group">
+                disease :
+
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  [(ngModel)]="selectedpatient.disease"
+                  name="disease"
+                  id="disease"
+                />
+              </div>
+
+              <div class="form-group">
+                rid :
+
+                <select [(ngModel)]="selectedpatient.rid">
+                  <option *ngFor="let room of rooms" [value]="room.rid">
+                    {{ room.rid }}
+                  </option>
+                </select>
+              </div>
+              <br />
+
+              <div class="form-group">
+                did :
+
+                <select [(ngModel)]="selectedpatient.did">
+                  <option *ngFor="let doctor of doctors" [value]="doctor.did">
+                    {{ doctor.did }}
+                  </option>
+                </select>
+              </div>
+              <br />
+
+              <div class="form-group">
+                estimated bill :
+
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  [(ngModel)]="selectedpatient.estimatedBill"
+                  name="estimatedBill"
+                  id="estimatedBill"
+                />
+              </div>
+
+              <button (click)="save()" class="btn">Save</button>
+
+              <button (click)="delete()" class="btn">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <body class="hm-gradient">
+    <main>
+      <div class="container mt-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <!-- Grid row -->
+
+            <div class="row"></div>
+
+            <!-- Grid row -->
+
+            <!--Table-->
+
+            <table class="table table-striped">
+              <!--Table head-->
+
+              <thead>
+                <tr>
+                  <th>Patient ID</th>
+
+                  <th>Patient Name</th>
+
+                  <th>Mobile</th>
+
+                  <th>Gender</th>
+
+                  <th>Address</th>
+
+                  <th>Disease</th>
+
+                  <th>Room Type</th>
+
+                  <th>Did</th>
+
+                  <th>Estimated bill</th>
+
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <!--Table head-->
+
+              <!--Table body-->
+
+              <tbody>
+                <tr
+                  *ngFor="let patient of patients"
+                  (click)="onSelect(patient)"
+                >
+                  <td>{{ patient.pid }}</td>
+
+                  <td>{{ patient.name }}</td>
+
+                  <td>{{ patient.mobile }}</td>
+
+                  <td>{{ patient.gender }}</td>
+
+                  <td>{{ patient.address }}</td>
+
+                  <td>{{ patient.disease }}</td>
+
+                  <td>{{ patient.rid }}</td>
+
+                  <td>{{ patient.did }}</td>
+
+                  <td>{{ patient.estimatedBill }}</td>
+
+                  <td>
+                    <button class="btn btn-primary" (click)="save()">
+                      Edit
+                    </button>
+                    &nbsp;
+
+                    <button class="btn btn-danger" (click)="delete()">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+
+              <!--Table body-->
+            </table>
+
+            <!--Table-->
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</div>

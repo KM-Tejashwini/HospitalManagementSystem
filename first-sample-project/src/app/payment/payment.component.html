@@ -1,0 +1,304 @@
+<!--<div>
+  <table>
+    <thead></thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{ payment.payID }}</td>
+        <td>{{ payment.pid }}</td>
+        <td>{{ payment.bid }}</td>
+        <td>{{ payment.amount }}</td>
+        <td>{{ payment.chequeNumber }}</td>
+        <td>{{ payment.bankName }}</td>
+
+        <td><button (click)="onSelect(payment)">edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="selectedpayment">
+  <h2>{{ isNewpayment ? "Add New payment" : "Edit payment" }}</h2>
+  <div>
+    <label for="payID">payID:</label>
+    <input id="payID" [(ngModel)]="selectedpayment.payID" />
+  </div>
+  <div>
+    <label for="bid">bid:</label>
+    <input id="bid" [(ngModel)]="selectedpayment.bid" />
+  </div>
+  <div>
+    <label for="pid">pid:</label>
+    <input id="pid" [(ngModel)]="selectedpayment.pid" />
+  </div>
+  <div>
+    <label for="amount"> amount:</label>
+    <input id="amount" [(ngModel)]="selectedpayment.amount" />
+  </div>
+  <div>
+    <label for="paymentType">paymentType:</label>
+    <input id="paymentType" [(ngModel)]="selectedpayment.paymentType" />
+  </div>
+  <div>
+    <label for="chequeNumber">chequeNumber:</label>
+    <input id="chequeNumber" [(ngModel)]="selectedpayment.chequeNumber" />
+  </div>
+
+  <div>
+    <label for="bankName">bankName:</label>
+    <input id="bankName" [(ngModel)]="selectedpayment.bankName" />
+  </div>
+
+  <div>
+    <button (click)="save()">Save</button>
+    <button (click)="delete()">Delete</button>
+  </div>
+</div>
+
+<div>
+  <button (click)="addNewpayment()">Add New payment</button>
+</div>-->
+
+<br />
+
+<div class="body">
+  <div>
+    <a routerLink="/dashboard" class="previous">&laquo; back</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <button type="button" class="btn btn-dark" (click)="addNewpayment()">
+      Add New payment
+    </button>
+  </div>
+
+  <div *ngIf="selectedpayment">
+    <div
+      class="container mt-5 mb-5 d-flex justify-content-center"
+      style="background-color: whitesmoke; width: 1300px; height: 700px"
+    >
+      <img
+        src="../../assets/room"
+        style="
+          width: 900px;
+          height: 620px;
+          border-radius: 20px;
+          margin-left: 5px;
+          margin-top: 20px;
+        "
+        alt="logo"
+      />
+
+      <div class="card px-1 py-4" style="margin: 20px 20px">
+        <div class="card-body">
+          <h5>{{ isNewpayment ? "Add New payment" : "Edit Payment" }}</h5>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- <div class="form-group">
+                Payment ID:
+
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="selectedpayment.payID"
+                  name="payID"
+                  id="payID"
+                />
+              </div> -->
+              <br />
+
+              <div class="form-group">
+                Bill ID:
+
+                <!-- <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="selectedpayment.bid"
+                  name="bid"
+                  id="bid"
+                /> -->
+                <select [(ngModel)]="selectedpayment.bid">
+                  <option *ngFor="let bill of bills" [value]="bill.bid">
+                    {{ bill.bid }}
+                  </option>
+                </select>
+              </div>
+              <br />
+
+              <div class="form-group">
+                Patient ID:
+
+                <!-- <input
+                  class="form-control"
+                  type="text"
+                  name="pid"
+                  id="pid"
+                  placeholder=""
+                  [(ngModel)]="selectedpayment.pid"
+                /> -->
+                <select [(ngModel)]="selectedpayment.pid">
+                  <option
+                    *ngFor="let patient of patients"
+                    [value]="patient.pid"
+                  >
+                    {{ patient.pid }}
+                  </option>
+                </select>
+              </div>
+              <br />
+
+              <div class="form-group">
+                Amount:
+
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  [(ngModel)]="selectedpayment.amount"
+                  name="amount"
+                  id="amount"
+                />
+              </div>
+              <br />
+
+              <div class="form-group">
+                Payment Type:
+
+                <!-- <input
+                  class="form-control"
+                  type="text"
+                  placeholder=""
+                  [(ngModel)]="selectedpayment.paymentType"
+                  name="paymentType"
+                  id="paymentType"
+                />
+              </div> -->
+                <select
+                  id="paymentType"
+                  name="paymentType"
+                  [(ngModel)]="selectedpayment.paymentType"
+                >
+                  <option value="Cheque">Cheque</option>
+
+                  <option value="Cash">Cash</option>
+                </select>
+                <br />
+                <br />
+
+                <div class="form-group">
+                  Cheque Number (If cash put NA):
+
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder=""
+                    [(ngModel)]="selectedpayment.chequeNumber"
+                    name="chequeNumber"
+                    id="chequeNumber"
+                  />
+                </div>
+                <br />
+
+                <div class="form-group">
+                  Bank Name (If cash put NA):
+
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder=""
+                    [(ngModel)]="selectedpayment.bankName"
+                    name="bankName"
+                    id="bankName"
+                  />
+                </div>
+                <br />
+
+                <button (click)="save()" class="btn">Save</button>
+                <br /><br />
+
+                <button (click)="delete()" class="btn">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <body class="hm-gradient">
+      <main>
+        <div class="container mt-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <!-- Grid row -->
+
+              <div class="row"></div>
+
+              <!-- Grid row -->
+
+              <!--Table-->
+
+              <table class="table table-striped">
+                <!--Table head-->
+
+                <thead>
+                  <tr>
+                    <th>Payment ID</th>
+
+                    <th>Bill ID</th>
+
+                    <th>Patient ID</th>
+
+                    <th>Amount</th>
+
+                    <th>Cheque Number</th>
+
+                    <th>Bank Name</th>
+
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <!--Table head-->
+
+                <!--Table body-->
+
+                <tbody>
+                  <tr
+                    *ngFor="let payment of payments"
+                    (click)="onSelect(payment)"
+                  >
+                    <td>{{ payment.payID }}</td>
+
+                    <td>{{ payment.bid }}</td>
+
+                    <td>{{ payment.pid }}</td>
+
+                    <td>{{ payment.amount }}</td>
+
+                    <td>{{ payment.chequeNumber }}</td>
+
+                    <td>{{ payment.bankName }}</td>
+
+                    <td>
+                      <button class="btn btn-primary" (click)="save()">
+                        Edit
+                      </button>
+                      &nbsp;
+
+                      <button class="btn btn-danger" (click)="delete()">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+
+                <!--Table body-->
+              </table>
+
+              <!--Table-->
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>
+  </div>
+</div>

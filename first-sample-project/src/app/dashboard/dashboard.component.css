@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+
+  padding: 0;
+
+  /*font-family: 'Poppins', sans-serif;*/
+}
+
+.main {
+  width: 120%;
+
+  background-image: url(../../assets/Img-dash.jpg);
+
+  background-position: center;
+
+  background-size: cover;
+
+  height: 109vh;
+}
+
+.navbar {
+  width: 1200px;
+
+  height: 75px;
+
+  margin: auto;
+}
+
+/*.icon{
+
+   width: 200px;
+
+   float:left;
+
+   height:70px;
+
+   font-family: Arial;
+
+}
+
+
+
+.log{
+
+   color:#ffbb00;
+
+   padding-left: 20px;
+
+   float:left;
+
+   padding-top: 10px;
+
+   
+
+}*/
+
+.log h1 {
+  color: #ffbb00;
+}
+
+.marquee {
+  color: #ffbb00;
+
+  height: 66px;
+}
+
+.menu {
+  width: 400;
+
+  float: left;
+
+  height: 70;
+}
+
+u {
+  color: #714ee5;
+}
+
+ul {
+  float: left;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: 14px;
+}
+
+ul li {
+  list-style: none;
+
+  margin-left: 62px;
+
+  margin-top: 27;
+
+  font-size: 14px;
+}
+
+ul li a {
+  text-decoration: none;
+
+  color: rgb(53, 117, 236);
+
+  font-weight: bold;
+
+  transition: 0.45s ease-in-out;
+
+  font-family: Arial;
+}
+
+ul li a:hover {
+  color: #f07d20;
+}
+
+.search {
+  width: 330px;
+
+  float: left;
+
+  margin-left: 270px;
+}
+
+.srch {
+  font-family: "Times New Roman", Times, serif;
+
+  width: 200px;
+
+  height: 40px;
+
+  background: transparent;
+
+  border: 1px salmon;
+
+  margin-top: 13px;
+
+  color: antiquewhite;
+
+  border-right: none;
+
+  font-size: 16px;
+
+  border-bottom-left-radius: 5px;
+
+  border-top-left-radius: 5px;
+}
+
+.content {
+  width: 1200;
+
+  height: auto;
+
+  margin: auto;
+
+  color: rgb(238, 250, 252);
+
+  position: relative;
+}
+
+.content.par {
+  padding-left: 20px;
+
+  padding-bottom: 25px;
+
+  font-family: Arial;
+
+  line-height: 30px;
+}
+
+.content h1 {
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: 50px;
+
+  padding-left: 20px;
+
+  margin-top: 9%;
+
+  letter-spacing: 2px;
+}
+
+.content.cn {
+  width: 160px;
+
+  height: 40px;
+
+  background: #f07d20;
+
+  border: none;
+
+  margin-bottom: 10px;
+
+  margin-left: 20px;
+
+  font-size: 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+}
+
+.content .cn a {
+  text-decoration: none;
+
+  color: black;
+
+  transition: 0.3s ease;
+}
+
+.cn:hover {
+  background-color: #fff;
+}
+
+.content span {
+  color: #ffbb00;
+
+  font-size: 60px;
+}
+
+.btn {
+  padding: 8px 22px;
+
+  background: var(--main-color);
+
+  color: var(--bg-color);
+
+  border-radius: 5rem;
+}
+
+.btn:hover {
+  background: #714ee5;
+}
+
+.paragraph {
+  color: rgb(251, 251, 251);
+}

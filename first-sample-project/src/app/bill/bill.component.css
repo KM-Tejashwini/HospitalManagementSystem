@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* color: rgb(53, 117, 236); */
+  background-color: ;
+}
+
+.header {
+  background-image: url(../../assets/room);
+  background-position: center;
+  background-size: cover;
+  height: 109vh;
+  width: 100%;
+}
+
+.main {
+  width: 400px;
+  margin: 100px auto 0px auto;
+
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.register {
+  background-color: rgba(0, 0, 0.5);
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid rgb(112, 112, 11);
+  /* box-shadow: 2px 2px 15px
+       rgba(0, 0,0, 0.3); */
+  color: rgb(53, 117, 236);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+#register {
+  margin: 40px;
+}
+label {
+  font-family: Arial;
+  font-size: 18px;
+}
+input#name {
+  width: 300px;
+  border: 1px solid #e5dede;
+  border-radius: 3px;
+  outline: 0;
+  padding: 7px;
+  background-color: #fff;
+  box-shadow: inset 1px 1px 5px rgb(0, 0, 0.3);
+}
+
+.btn {
+  padding: 8px 22px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 22rem;
+}
+.btn:hover {
+  background: #714ee5;
+}
